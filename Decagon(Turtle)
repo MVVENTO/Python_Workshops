@@ -1,0 +1,17 @@
+import turtle # imports the turtle module
+wn = turtle.Screen()
+wn.bgcolor("ivory")
+                        
+tina = turtle.Turtle() # Create a turtle named : tina and set some attibutes
+tina.color("lightpink")
+tina.pensize(1)
+
+
+# Repeat 10 times : and stamps tina at each corner
+for i in range(10):
+    tina.forward(100)
+    tina.stamp()
+    tina.left(360/10)
+    
+    
+wn.exitonclick()
