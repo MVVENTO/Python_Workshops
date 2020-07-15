@@ -1,0 +1,16 @@
+import turtle
+tom = turtle.Turtle()
+tom.color("lightblue","yellow")
+
+
+tom.begin_fill()
+
+for i in range(50):
+    tom.forward(300)
+    tom.left(170)
+
+tom.end_fill()
+tom.done()
+
+
+wn.exitonclick()
