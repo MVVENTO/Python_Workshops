@@ -1,0 +1,37 @@
+import turtle
+wn = turtle.Screen()             # Set up the window and its attributes
+wn.bgcolor("lightyellow")
+
+
+tess = turtle.Turtle()           # create tess and set some attributes
+tess.color("lightblue")
+tess.pensize(1)
+
+alex = turtle.Turtle()           # create alex
+alex.color("pink")
+alex.pensize(3)
+
+tess.forward(80)                 # Let tess draw a square
+tess.left(90)
+tess.forward(80)
+tess.left(90)
+tess.forward(80)
+tess.left(90)
+tess.forward(80)
+tess.left(90)          
+
+
+                
+alex.forward(50)                 # Let alex draw an equilateral triangle
+alex.left(120)
+alex.forward(50)
+alex.left(120)
+alex.forward(50)
+alex.left(120)                   # complete the triangle
+
+alex.right(180)                  # turn tess around
+alex.forward(80) 
+
+
+
+wn.exitonclick()
