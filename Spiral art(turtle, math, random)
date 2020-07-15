@@ -1,0 +1,21 @@
+
+import turtle
+import math
+import random
+
+wn = turtle.Screen()
+wn.bgcolor("black")
+
+
+bob = turtle.Turtle()
+turtle.colormode(255)
+bob.color("lightblue")
+bob.speed(33)
+
+for i in range(22000):
+	bob.forward(math.sqrt(i))
+	bob.left(i%180)
+
+turtle.done()
+
+wn.exitonclick()
