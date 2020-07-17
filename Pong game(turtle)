@@ -1,0 +1,123 @@
+import turtle
+import os
+
+wn = turtle.Screen()
+wn.title("Tennis Game")
+wn.bgcolor("black")
+wn.setup(width=800, height=600)
+
+# Paddle A:
+pad_a = turtle.Turtle()
+pad_a.speed(0)
+pad_a.shape("square")
+pad_a.color("white")
+pad_a.shapesize(stretch_wid=5,stretch_len=1)
+pad_a.penup()
+pad_a.goto(-350,0)
+
+# Paddle B:
+pad_b = turtle.Turtle()
+pad_b.speed(0)
+pad_b.shape("square")
+pad_b.color("white")
+pad_b.shapesize(stretch_wid=5,stretch_len=1)
+pad_b.penup()
+pad_b.goto(350,0)
+
+#Ball:
+ball = turtle.Turtle()
+ball.speed(0)
+ball.shape("square")
+ball.color("white")
+ball.penup()
+ball.goto(0,0)
+ball.dx = 2
+ball.dy = 2
+
+# Pen:
+pen = turtle.Turtle()
+pen.speed(0)
+pen.shape("square")
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0,260)
+pen.write("Player A: 0 Player B: 0",align="center",
+          font=("courier",24,"normal"))
+
+# Functions:
+def pada_up():
+    y = pad_a.ycor()
+    y +=20
+    pad_a.sety(y)
+
+def pada_down():
+    y = pad_a.ycor()
+    y -=20
+    pad_a.sety(y)
+
+def padb_up():
+    y = pad_b.ycor()
+    y +=20
+    pad_b.sety(y)
+
+def padb_down():
+    y = pad_b.ycor()
+    y -=20
+    pad_b.sety(y)
+
+# Keybaord:
+wn.listen()
+wn.onkeypress(pada_up,"q")
+wn.onkeypress(pada_down,"a")
+wn.onkeypress(padb_up,"Up")
+wn.onkeypress(padb_down,"Down")
+
+while True:
+    wn.update()
+
+    # Move the Ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    # Border
+    score_a = 0
+    score_b = 0
+    # Top & Bottom:
+    if ball.ycor() > 290:
+        ball.sety(290)
+        ball.dy *=-1
+        os.system("afplay bounce.wav&")
+
+    elif ball.ycor() < -290:
+        ball.sety(-290)
+        ball.dy *=-1
+        os.system("afplay bounce.wav&")
+
+    # Left & Right:
+    if ball.xcor() > 350:
+        score_a +=1
+        pen.clear()
+        pen.write("Player A:{} Player B:{}".
+                  format(score_a,score_b),align="center",
+                  font=("courier",24,"normal"))
+        ball.goto(0,0)
+        ball.dy *=-1
+
+    elif ball.xcor() < -350:
+        score_b +=1
+        pen.clear()
+        pen.write("Player A:{} Player B:{}".
+                  format(score_a,score_b),align="center",
+                  font=("courier",24,"normal"))
+        ball.goto(0,0)
+        ball.dy *=-1
+        
+    # Paddle & Ball Collisions:
+    if ball.xcor()<-340 and ball.ycor()<pad_a.ycor()+50 and ball.ycor()>pad_a.ycor() -50:
+        ball.dx *=-1
+        os.system("afplay bounce.wav&")
+
+    elif ball.xcor()> 340 and ball.ycor()<pad_b.ycor()+50 and ball.ycor()>pad_b.ycor() -50:
+        ball.dx *=-1
+        os.system("afplay bounce.wav&")
