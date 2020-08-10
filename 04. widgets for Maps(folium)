@@ -1,0 +1,29 @@
+# show map types using ipywidgets
+import ipywidgets
+
+# widget
+select_widget=ipywidgets.Select(
+    options=['Open Street Map', 'Terrain', 'Toner', 'Watercolor', 'Positron', 'Dark Matter'],
+    value='Open Street Map',
+    description='Map Type:',
+    disabled=False)
+
+# widget function
+def select(map_type):
+    if map_type == 'Open Street Map':
+        display(folium.Map(location=[39.739192, -104.990337], zoom_start=12, height=500))
+    if map_type == 'Terrain':
+        display(folium.Map(location=[39.739192, -104.990337], tiles='Stamen Terrain', zoom_start=12, height=400))
+    if map_type == 'Toner':
+        display(folium.Map(location=[39.739192, -104.990337], tiles='Stamen Toner', zoom_start=12, height=400))
+    if map_type == 'Watercolor':
+        display(folium.Map(location=[39.739192, -104.990337], tiles='Stamen Watercolor', zoom_start=12, height=400))
+    if map_type == 'Positron':
+        display(folium.Map(location=[39.739192, -104.990337], tiles='CartoDB Positron', zoom_start=12, height=400))
+    if map_type == 'Dark Matter':
+        display(folium.Map(location=[39.739192, -104.990337], tiles='CartoDB Dark_Matter', zoom_start=12, height=400))
+        
+# interaction between widgets and function    
+ipywidgets.interact(select, map_type=select_widget)
+
+
