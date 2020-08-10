@@ -1,0 +1,23 @@
+#Libraries for map:
+import folium
+
+#Create a map, centered at location of choice ,by lat and long, and zoomed out a bit:
+folium_map = folium.Map(location=[40.782864, -73.965355],
+                        zoom_start=13,
+                        control_scale=True,
+                        tiles="CartoDB dark_matter")
+
+#Cartodb Positron
+#CartoDB dark_matter
+
+#To create a base map, simply pass your starting coordinates to Folium:
+folium.CircleMarker(location=[40.782864, -73.965355],fill=True).add_to(folium_map)
+
+
+#Creates marker for the main campus of Hunter College
+folium.Marker(location = [40.768731, -73.964915], popup = "Hunter College").add_to(folium_map)
+folium_map
+
+#save our map
+#create the .html file:
+#mapCUNY.save(outfile='nycMap.html')
