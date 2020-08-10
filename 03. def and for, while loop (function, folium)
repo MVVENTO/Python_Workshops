@@ -1,0 +1,29 @@
+# function:
+def add(x,y):
+    return x+y
+print(add(2,3))
+
+#for & while `
+#the for statement allows us to iterate through a sequence
+# of values
+
+# for <variables> in <iterable sequence>:       #loop header
+#    <statement>                               #loop body
+
+
+for item in range(7) :
+    print(item, end=" ")
+    
+
+
+# variale: takes on each successive value in the iterable sequence,
+# and the statement in the body of the loop are excuted once for each value.
+
+# iterable sequence: type of list, strings, tuples is anything you ca looop over with a for loop
+# numbers [1,2,3,4,5,6]  <List
+#fuits =("apple", "banana", "cherry")  <Tuple
+#message = "I love you python"        <variable 
+#ages = {"sam":4, "mary":3, ""bill":2} <dictionary
+    
+for x in "banana":
+    print(x, end=" ")
