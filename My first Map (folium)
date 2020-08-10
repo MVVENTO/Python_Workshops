@@ -1,0 +1,15 @@
+import folium
+
+folium.Map()
+
+
+# map
+map_ca = folium.Map(location=[33.899657, 35.517915], zoom_start=4)
+
+# add custom marker to map
+folium.Marker(location=[33.899657, 35.517915], 
+              popup='popup', 
+              icon=folium.Icon(color='red', icon='bolt', prefix='fa')).add_to(map_ca)
+
+# display map
+map_ca
